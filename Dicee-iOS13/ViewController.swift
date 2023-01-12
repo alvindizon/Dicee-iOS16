@@ -18,12 +18,8 @@ class ViewController: UIViewController {
     let dice = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")]
 
     @IBAction func rollButtonPressed(_ sender: UIButton) {
-        diceImageView1.image = dice[generateRandomDiceIndex()]
-        diceImageView2.image = dice[generateRandomDiceIndex()]
-    }
-
-    func generateRandomDiceIndex() -> Int {
-        return Int.random(in: 0...5)
+        diceImageView1.image = dice.randomElement()
+        diceImageView2.image = dice.randomElement()
     }
 }
 
