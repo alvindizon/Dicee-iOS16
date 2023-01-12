@@ -14,20 +14,16 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var diceImageView2: UIImageView!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        // image literals no longer show up in code completion.
-        // type #imageLiteral( and press enter
-        diceImageView1.image = #imageLiteral(resourceName: "DiceSix")
-        diceImageView1.alpha = 0.5
 
-        diceImageView2.image = #imageLiteral(resourceName: "DiceTwo")
-    }
+    let dice = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")]
 
     @IBAction func rollButtonPressed(_ sender: UIButton) {
-        diceImageView1.image = #imageLiteral(resourceName: "DiceFour")
-        diceImageView2.image = #imageLiteral(resourceName: "DiceFour")
+        diceImageView1.image = dice[generateRandomDiceIndex()]
+        diceImageView2.image = dice[generateRandomDiceIndex()]
+    }
+
+    func generateRandomDiceIndex() -> Int {
+        return Int.random(in: 0...5)
     }
 }
 
